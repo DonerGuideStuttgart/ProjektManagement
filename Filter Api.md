@@ -57,7 +57,7 @@ Returns a list of Döner stores in Stuttgart based on Filters
 
 ### **Example Request**
 ```HTTP
-GET /api/stores?district=Stuttgart-West&rating=4&ai_rating=80&price_min=3&price_max=7&open_hours=open,late_open&vegetarian=vegan,vegetarian&halal=halal&doners_available=Falafel,Chicken&waiting_time=fast&payment=cash,card&seating=seating,to_go&sauces_available=Knoblauch,Scharf&limit=10
+GET /api/stores?district=Stuttgart-West&rating=4&price_min=3&price_max=7&vegetarian=vegan,vegetarian&halal=halal&waiting_time=fast&payment=cash,card&limit=10
 ```
 
 ### **Example Response**
