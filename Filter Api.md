@@ -11,11 +11,10 @@ Returns a list of Döner stores in Stuttgart based on Filters
 | `open_hours`       | comma-separated list | Filter by current open status     | `open`, `not_open`, `late_open`                                            |
 | `vegetarian`       | comma-separated list | Filter by food type               | `meat`, `vegetarian`, `vegan`                                              |
 | `halal`            | string               | Halal availability                | `halal`, `not_halal`                                                       |
-| `doners_available` | comma-separated list | Döner items sold                  | `Falafel`, `Chicken`, `Lamb`, `Beef`, `Lahmacun`, `Yufka`, `Feta`, `Ayran` |
 | `waiting_time`     | string               | Average waiting time              | `fast`, `normal`, `slow`                                                   |
 | `payment`          | comma-separated list | Accepted payment types            | `cash`, `card`                                                             |
 | `seating`          | comma-separated list | Seating options                   | `seating`, `to_go`                                                         |
-| `sauces_available` | comma-separated list | Sauces offered                    | `Knoblauch`, `Kräuter`, `Joghurt`, `Scharf`                                |
+| `sauce_amount`     | number   (1-10)      | Sauces slider                      | `1,2`.`8,7`      |
 | `limit`            | number               | Max results (default 20, max 100) | 1–100                                                                      |
 | `offset`           | number               | Pagination offset                 | ≥ 0                                                                        |
 
@@ -50,24 +49,6 @@ Returns a list of Döner stores in Stuttgart based on Filters
 - `seating`
 - `to_go`
 
-#### 🌯 Döner Types
-
-- `Falafel`
-- `Chicken`
-- `Lamb`
-- `Beef`
-- `Lahmacun`
-- `Yufka`
-- `Feta`
-- `Ayran`
-
-#### 🌶️ Sauces
-
-- `Knoblauch`
-- `Kräuter`
-- `Joghurt`
-- `Scharf`
-
 #### ⏱️ Waiting Times
 
 - `fast`
@@ -97,19 +78,15 @@ GET /api/stores?district=Stuttgart-West&rating=4&ai_rating=80&price_min=3&price_
       },
 
       "rating": 4.6,
-      "ai_rating": 87,
       "price": 5.5,
       "vegetarian": ["vegetarian"],
       "halal": "halal",
       "waiting_time": "fast",
       "payment": ["cash", "card"],
-      "seating": ["seating", "to_go"],
-      "doners_available": ["Falafel", "Chicken", "Yufka"],
-      "sauces_available": ["Knoblauch", "Scharf"],
       "open_hours": "open",
       "distance_from_me": 820,
 
-      "ai_review": "Dönerhaus West offers fresh ingredients, flavorful chicken döner, and excellent vegetarian options. Customers praise the quick service and friendly staff.",
+      "ai_summary": "Dönerhaus West offers fresh ingredients, flavorful chicken döner, and excellent vegetarian options. Customers praise the quick service and friendly staff.",
 
       "opening_hours": {
         "monday": "10:00–22:00",
@@ -121,7 +98,7 @@ GET /api/stores?district=Stuttgart-West&rating=4&ai_rating=80&price_min=3&price_
         "sunday": "11:00–21:00"
       },
 
-      "reviews": [
+      "ai_reviews": [
         {
           "id": "rev_101",
           "user": "Max Mustermann",
